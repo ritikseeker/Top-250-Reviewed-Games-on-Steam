@@ -8,7 +8,7 @@
 5. numpy
 6. matplotlib
 
-##STEPS :
+### STEPS :
 1. Run "webscrapping.py" file. It will scrape the data from Steam site and store in "Top 250 Most Reviewed Games on Steam.xlsx" Excel file.
 2. "Analysing Top 250 Most Reviewed Games on Steam.xlsx" excel file contains the same data with some formatting done and pivot tables of Average Rating wrt Release Year and Release Month, Average number of Reviews wrt Release Year and Release Month in respective sheets.
 3. Run "Analysing Top 250 most reviewed Games.py" python file to :-
