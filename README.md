@@ -1,4 +1,5 @@
 # Top-250-Reviewed-Games-on-Steam
+<<<<<<< HEAD
 ## Python Libraries used:
 1. bs4
 2. requests
@@ -21,3 +22,6 @@ STEPS :
    H. Least rated game released in yr 2024
    I. Grouping by Release year with avg Reviews, avg Rating, total games released
    J. Plotting the same using Matplotlib Library
+=======
+Webscrapped Top 250 Most Reviewed Games on Steam Data from Steam site.
+>>>>>>> fa327ef6276982a7477c661c00509b8f22aae1c2
