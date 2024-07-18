@@ -37,6 +37,7 @@ gameRankings.rename(columns = {'Reviews on Steam':'Reviews','Rating on Steam':'R
 avgGameRatingByYear = gameRankings.groupby(["Release Year"],as_index=False).agg({'Reviews':['mean'],'Rating(out of 1)':['mean'],'Title':['count']})
 avgGameRatingByYear.rename(columns={"Reviews": "Avg Reviews","Rating(out of 1)":"Avg Rating(out of 1)","Title":"Total Games Released","mean":"","count":""},inplace = True)
 
+# Avg Review, Avg Rating, Total Games Released by Year Dataframe
 # print(avgGameRatingByYear)
 
 # Initialise the subplot function using number of rows and columns 

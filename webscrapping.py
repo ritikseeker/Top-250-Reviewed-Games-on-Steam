@@ -30,5 +30,5 @@ try:
 except Exception as e:
     print(e)
 
-excel.save('Top 250 Most Reviewed Games on Steam.xlsx')
+excel.save('C:/Users/ritik/Documents/Projects/Web scraping project/Top-250-Reviewed-Games-on-Steam/Top 250 Most Reviewed Games on Steam.xlsx')
 
