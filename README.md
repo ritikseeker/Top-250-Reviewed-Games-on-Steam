@@ -10,4 +10,4 @@
 
 ### STEPS :
 1. "Top 250 Most Reviewed Games on Steam.xlsx" excel file contains the data scraped. (Running "webscrapping.py" file will scrape latest data from steam site and store here)
-2. Run "Analysing Top 250 most reviewed Games.py" python file to create pandas dataframe from "Top 250 Most Reviewed Games on Steam.xlsx" Excel file and performing Data Analysis on it.
+2. Run "Analysing Top 250 most reviewed Games.py" python file to create pandas dataframe from "Top 250 Most Reviewed Games on Steam.xlsx" Excel file and perform Data Analysis on it.
