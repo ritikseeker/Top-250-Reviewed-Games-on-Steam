@@ -35,6 +35,7 @@ try:
             releaseMonth = releaseMonthAndYear[1]
             releaseYear = releaseMonthAndYear[2]
         numOfReviews = movie.find('span',class_='owners').text
+        numOfReviews = int(numOfReviews.replace(",",""))
         rating = movie.find('span',class_='rating').text.split(" ")[-1][:-1]
         # print(rank,name,releaseMonth,releaseYear,numOfReviews,rating)
         sheet.append([rank,name,releaseMonth,releaseYear,numOfReviews,rating])

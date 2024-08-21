@@ -11,25 +11,28 @@ gameRankings = pd.read_excel("C:/Users/ritik/Documents/Projects/Web scraping pro
 # print(gameRankings.columns)
 
 # Renaming columns
-gameRankings.rename(columns = {'Reviews on Steam':'Reviews','Rating on Steam':'Rating(out of 100)','Game Rank':'Rank','Game Name':'Title'}, inplace = True)
+gameRankings.rename(columns = {'Reviews on Steam':'Total Reviews','Rating on Steam':'Rating(%)','Game Rank':'Rank','Game Name':'Title'}, inplace = True)
 
 # Top 5 Games by Rank(no. of Reviews)
-print(gameRankings.head())
+# print(gameRankings.head(5))
+
+# Bottom 6 Games by Rank(no. of Reviews)
+# print(gameRankings.tail(6))
 
 # Statistical Summary on dataset
-print(gameRankings.describe())
+# print(gameRankings.describe())
 
 # Info on dataset
-print(gameRankings.info())
+# print(gameRankings.info())
 
 # Games within Ranking 5-10
 # print(gameRankings.loc[4:9])
 
 # Game with > 1,000,000 Reviews
-# print(gameRankings[gameRankings["Reviews"]> 1000000])
+# print(gameRankings[gameRankings["Total Reviews"]> 1000000])
 
-# Game with > 1,000,000 Reviews and > 0.9 Ratings
-# print(gameRankings.loc[(gameRankings['Reviews']>1000000)&(gameRankings['Rating(out of 100)']>0.9)])
+# Game with > 1,000,000 Reviews and > 90% Rating
+# print(gameRankings.loc[(gameRankings['Total Reviews']>1000000)&(gameRankings['Rating(%)']>90)])
 
 # Top rated game released in yr 2023
 # print(gameRankings.loc[gameRankings['Release Year'] == 2023].iloc[0])
@@ -38,18 +41,18 @@ print(gameRankings.info())
 # print(gameRankings.loc[gameRankings['Release Year'] == 2024].iloc[-1])
 
 # grouping by year 
-# avgGameRatingByYear = gameRankings.groupby(["Release Year"],as_index=False).agg({'Reviews':['mean'],'Rating(out of 100)':['mean'],'Title':['count']})
-# avgGameRatingByYear.rename(columns={"Reviews": "Avg Reviews","Rating(out of 100)":"Avg Rating(out of 100)","Title":"Total Games Released","mean":"","count":""},inplace = True)
+avgGameRatingByYear = gameRankings.groupby(["Release Year"],as_index=False).agg({'Total Reviews':['mean'],'Rating(%)':['mean'],'Title':['count']})
+avgGameRatingByYear.rename(columns={"Total Reviews": "Avg Reviews","Rating(%)":"Avg Rating(%)","Title":"Total Games Released","mean":"","count":""},inplace = True)
 
 # Avg Review, Avg Rating, Total Games Released by Year Dataframe
-# print(avgGameRatingByYear)
-'''
+print(avgGameRatingByYear)
+
 # Initialise the subplot function using number of rows and columns 
 figure, axis = plt.subplots(1, 3) 
   
 X = np.array(avgGameRatingByYear["Release Year"])
 Y1 = np.array(avgGameRatingByYear["Avg Reviews"])
-Y2 = np.array(avgGameRatingByYear["Avg Rating(out of 100)"])
+Y2 = np.array(avgGameRatingByYear["Avg Rating(%)"])
 Y3 = np.array(avgGameRatingByYear["Total Games Released"])
 
 axis[0].bar(X, Y1) 
@@ -64,4 +67,3 @@ axis[2].set_title("Total Games Released yearwise")
 
 # Combine all operations & display 
 plt.show()
-'''
