@@ -15,16 +15,16 @@ try:
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36',"Accept-Language": "en-US,en;q=0.5"} 
     result = requests.get(source, headers=headers)
     soup = BeautifulSoup(result.text, 'html.parser')
-    movies1 = soup.find('div', class_='col1 main ranking')
-    moviesList = movies1.find_all('div',id='1')
+    games1 = soup.find('div', class_='col1 main ranking')
+    gamesList = games1.find_all('div',id='1')
 
     for i in range(2,251):
-        moviesList.extend(movies1.find_all('div',id=f'{i}'))
-    for movie in moviesList:
-        rankAndName = movie.find('span',class_='title').text.split(".")
+        gamesList.extend(games1.find_all('div',id=f'{i}'))
+    for game in gamesList:
+        rankAndName = game.find('span',class_='title').text.split(".")
         rank = rankAndName[0]
         name = rankAndName[1]
-        releaseMonthAndYear = movie.find('span',class_='date').a.text.split(" ")
+        releaseMonthAndYear = game.find('span',class_='date').a.text.split(" ")
         if len(releaseMonthAndYear[1]) != 3:
             releaseDate = current_time - timedelta(days = int(releaseMonthAndYear[1]))
             releaseDateString = str(releaseDate)
@@ -34,9 +34,9 @@ try:
         else:
             releaseMonth = releaseMonthAndYear[1]
             releaseYear = releaseMonthAndYear[2]
-        numOfReviews = movie.find('span',class_='owners').text
+        numOfReviews = game.find('span',class_='owners').text
         numOfReviews = int(numOfReviews.replace(",",""))
-        rating = movie.find('span',class_='rating').text.split(" ")[-1][:-1]
+        rating = game.find('span',class_='rating').text.split(" ")[-1][:-1]
         # print(rank,name,releaseMonth,releaseYear,numOfReviews,rating)
         sheet.append([rank,name,releaseMonth,releaseYear,numOfReviews,rating])
     
